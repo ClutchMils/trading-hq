@@ -14,18 +14,30 @@ function renderTrades() {
     const div = document.createElement("div");
 
     div.innerHTML = `
-      <p><strong>Pair:</strong> ${trade.pair}</p>
-      <p><strong>Timeframe:</strong> ${trade.timeframe}</p>
-      <p><strong>Bias:</strong> ${trade.bias}</p>
-      <p><strong>Risk:</strong> ${trade.risk}%</p>
-      <p><strong>Result:</strong> ${trade.result}R</p>
-      <p><strong>Lesson:</strong> ${trade.lesson}</p>
-      <hr>
-    `;
+    <p><strong>Pair:</strong> ${trade.pair}</p>
+    <p><strong>Timeframe:</strong> ${trade.timeframe}</p>
+    <p><strong>Bias:</strong> ${trade.bias}</p>
+    <p><strong>Risk:</strong> ${trade.risk}%</p>
+    <p><strong>Result:</strong> ${trade.result}R</p>
+    <p><strong>Lesson:</strong> ${trade.lesson}</p>
+
+    <button data-index="${index}">Delete</button>
+    <hr>
+  `;
 
     tradeList.appendChild(div);
   });
 }
+
+tradeList.addEventListener("click", function (e) {
+  if (e.target.tagName === "BUTTON") {
+    const index = e.target.getAttribute("data-index");
+
+    trades.splice(index, 1);
+    saveTrades();
+    renderTrades();
+  }
+});
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();

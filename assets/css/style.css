@@ -26,3 +26,15 @@ main {
   margin: 2rem auto;
   padding: 0 1rem;
 }
+
+button {
+  background: #7f1d1d;
+  color: #fff;
+  border: none;
+  padding: 0.4rem 0.7rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #991b1b;
+}
