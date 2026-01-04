@@ -13,37 +13,47 @@
       mistakes.
     </p>
 
-    <h2>How to Use This Journal</h2>
-    <ul>
-      <li>Log trades honestly</li>
-      <li>Focus on execution, not money</li>
-      <li>One lesson per trade</li>
-    </ul>
+    <h2>Log a Trade</h2>
+
+    <form id="tradeForm">
+      <label>
+        Pair:
+        <input type="text" id="pair" required /> </label
+      ><br /><br />
+
+      <label>
+        Timeframe:
+        <input type="text" id="timeframe" required /> </label
+      ><br /><br />
+
+      <label>
+        Bias:
+        <input type="text" id="bias" /> </label
+      ><br /><br />
+
+      <label>
+        Risk (%):
+        <input type="number" id="risk" step="0.1" required /> </label
+      ><br /><br />
+
+      <label>
+        Result (R):
+        <input type="number" id="result" step="0.1" required /> </label
+      ><br /><br />
+
+      <label>
+        Lesson:
+        <textarea id="lesson"></textarea></label
+      ><br /><br />
+
+      <button type="submit">Save Trade</button>
+    </form>
 
     <hr />
 
-    <h2>Trade Log</h2>
+    <h2>Trade History</h2>
+    <div id="tradeList"></div>
 
-    <h3>Example Trade</h3>
-    <p><strong>Pair:</strong> EURUSD</p>
-    <p><strong>Timeframe:</strong> 1H</p>
-    <p><strong>Bias:</strong> Daily bullish</p>
-    <p><strong>Risk:</strong> 1%</p>
-    <p><strong>Result:</strong> -1R</p>
-
-    <p>
-      <strong>What I Did Right:</strong><br />
-      Followed higher timeframe bias.
-    </p>
-
-    <p>
-      <strong>What I Did Wrong:</strong><br />
-      Entered too early.
-    </p>
-
-    <p>
-      <strong>Lesson:</strong><br />
-      Wait for confirmation.
-    </p>
+    <script src="../assets/js/journal.js"></script>
   </body>
 </html>
