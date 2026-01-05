@@ -4,56 +4,58 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>trading-hq</title>
-    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
   </head>
   <body>
-    <h1>Trading Journal</h1>
+    <main>
+      <h1>Trading Journal</h1>
 
-    <p>
-      This journal exists for one reason: to stop me from repeating the same
-      mistakes.
-    </p>
+      <p>
+        This journal exists for one reason: to stop me from repeating the same
+        mistakes.
+      </p>
 
-    <h2>Log a Trade</h2>
+      <h2>Log a Trade</h2>
 
-    <form id="tradeForm">
-      <label>
-        Pair:
-        <input type="text" id="pair" required /> </label
-      ><br /><br />
+      <form id="tradeForm">
+        <label>
+          Pair:
+          <input type="text" id="pair" required /> </label
+        ><br /><br />
 
-      <label>
-        Timeframe:
-        <input type="text" id="timeframe" required /> </label
-      ><br /><br />
+        <label>
+          Timeframe:
+          <input type="text" id="timeframe" required /> </label
+        ><br /><br />
 
-      <label>
-        Bias:
-        <input type="text" id="bias" /> </label
-      ><br /><br />
+        <label>
+          Bias:
+          <input type="text" id="bias" /> </label
+        ><br /><br />
 
-      <label>
-        Risk (%):
-        <input type="number" id="risk" step="0.1" required /> </label
-      ><br /><br />
+        <label>
+          Risk (%):
+          <input type="number" id="risk" step="0.1" required /> </label
+        ><br /><br />
 
-      <label>
-        Result (R):
-        <input type="number" id="result" step="0.1" required /> </label
-      ><br /><br />
+        <label>
+          Result (R):
+          <input type="number" id="result" step="0.1" required /> </label
+        ><br /><br />
 
-      <label>
-        Lesson:
-        <textarea id="lesson"></textarea></label
-      ><br /><br />
+        <label>
+          Lesson:
+          <textarea id="lesson"></textarea></label
+        ><br /><br />
 
-      <button type="submit">Save Trade</button>
-    </form>
+        <button type="submit">Save Trade</button>
+      </form>
 
-    <hr />
+      <hr />
 
-    <h2>Trade History</h2>
-    <div id="tradeList"></div>
+      <h2>Trade History</h2>
+      <div id="tradeList"></div>
+    </main>
 
     <script src="../assets/js/journal.js"></script>
   </body>
