@@ -1,10 +1,45 @@
 const form = document.getElementById("tradeForm");
 const tradeList = document.getElementById("tradeList");
 
+const totalTradesEl = document.getElementById("totalTrades");
+const winRateEl = document.getElementById("winRate");
+const avgREl = document.getElementById("avgR");
+const expectancyEl = document.getElementById("expectancy");
+
 let trades = JSON.parse(localStorage.getItem("trades")) || [];
 
 function saveTrades() {
   localStorage.setItem("trades", JSON.stringify(trades));
+}
+
+function calculateStats() {
+  const total = trades.length;
+
+  if (total === 0) {
+    totalTradesEl.textContent = 0;
+    winRateEl.textContent = "0%";
+    avgREl.textContent = 0;
+    expectancyEl.textContent = 0;
+    return;
+  }
+
+  let wins = 0;
+  let totalR = 0;
+
+  trades.forEach((trade) => {
+    const r = Number(trade.result);
+    totalR += r;
+    if (r > 0) wins++;
+  });
+
+  const winRate = ((wins / total) * 100).toFixed(1);
+  const avgR = (totalR / total).toFixed(2);
+  const expectancy = avgR; // expectancy per trade in R
+
+  totalTradesEl.textContent = total;
+  winRateEl.textContent = `${winRate}%`;
+  avgREl.textContent = avgR;
+  expectancyEl.textContent = expectancy;
 }
 
 function renderTrades() {
@@ -27,7 +62,10 @@ function renderTrades() {
 
     tradeList.appendChild(div);
   });
+  calculateStats();
 }
+
+calculateStats();
 
 tradeList.addEventListener("click", function (e) {
   if (e.target.tagName === "BUTTON") {
