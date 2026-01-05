@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav>
+        <a href="../index.html">Home</a>
+        <a href="../learn/market-basics.html">Learn</a>
+        <a href="../learn/support-resistance.html">Support & Resistance</a>
+        <a href="../learn/risk-management.html">Risk Management</a>
+        <a href="../strategy/index.html">Strategy</a>
+        <a href="../journal/index.html">Journal</a>
+        <a href="#">Resources</a>
+    </nav>
+    <main>
+      <h1>Pre-Trade Checklist</h1>
+
+      <p>If all boxes are not checked, I do not trade. No exceptions.</p>
+
+      <form id="checklistForm">
+        <label>
+          <input type="checkbox" class="rule" />
+          Daily bias is clear and defined </label
+        ><br /><br />
+
+        <label>
+          <input type="checkbox" class="rule" />
+          Price is at a higher timeframe level </label
+        ><br /><br />
+
+        <label>
+          <input type="checkbox" class="rule" />
+          Market structure is clean (not choppy) </label
+        ><br /><br />
+
+        <label>
+          <input type="checkbox" class="rule" />
+          Entry aligns with higher timeframe bias </label
+        ><br /><br />
+
+        <label>
+          <input type="checkbox" class="rule" />
+          Risk is fixed at 1% </label
+        ><br /><br />
+
+        <label>
+          <input type="checkbox" class="rule" />
+          I am calm and not emotional </label
+        ><br /><br />
+
+        <label>
+          Notes (optional):
+          <br />
+          <textarea id="notes"></textarea></label
+        ><br /><br />
+
+        <button type="button" id="checkButton">Can I Take This Trade?</button>
+      </form>
+
+      <h2 id="result"></h2>
+
+      <script src="../assets/js/checklist.js"></script>
+    </main>
+  </body>
+</html>
