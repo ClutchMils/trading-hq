@@ -1,6 +1,7 @@
 const rules = document.querySelectorAll(".rule");
 const result = document.getElementById("result");
 const checkButton = document.getElementById("checkButton");
+const notesInput = document.getElementById("notes");
 
 checkButton.addEventListener("click", () => {
   let allChecked = true;
@@ -10,6 +11,14 @@ checkButton.addEventListener("click", () => {
       allChecked = false;
     }
   });
+
+  const checklistResult = {
+    passed: allChecked,
+    notes: notesInput.value,
+    time: new Date().toLocaleString(),
+  };
+
+  localStorage.setItem("lastChecklist", JSON.stringify(checklistResult));
 
   if (allChecked) {
     result.textContent = "✅ Conditions met. Trade is allowed.";

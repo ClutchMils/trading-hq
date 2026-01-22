@@ -6,6 +6,8 @@ const winRateEl = document.getElementById("winRate");
 const avgREl = document.getElementById("avgR");
 const expectancyEl = document.getElementById("expectancy");
 
+const checklistData = JSON.parse(localStorage.getItem("lastChecklist"));
+
 let trades = JSON.parse(localStorage.getItem("trades")) || [];
 
 function saveTrades() {
@@ -56,6 +58,20 @@ function renderTrades() {
     <p><strong>Result:</strong> ${trade.result}R</p>
     <p><strong>Lesson:</strong> ${trade.lesson}</p>
 
+    <p>
+      <strong>Checklist:</strong>
+      ${
+        trade.checklistPassed === true
+          ? "✅ Passed"
+          : trade.checklistPassed === false
+          ? "❌ Failed"
+          : "Not recorded"
+      }
+    </p>
+
+  <p><strong>Checklist Notes:</strong> ${trade.checklistNotes}</p>
+  <p><strong>Checklist Time:</strong> ${trade.checklistTime}</p>
+
     <button data-index="${index}">Delete</button>
     <hr>
   `;
@@ -80,6 +96,8 @@ tradeList.addEventListener("click", function (e) {
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
+  const checklistData = JSON.parse(localStorage.getItem("lastChecklist"));
+
   const trade = {
     pair: document.getElementById("pair").value,
     timeframe: document.getElementById("timeframe").value,
@@ -87,6 +105,10 @@ form.addEventListener("submit", function (e) {
     risk: document.getElementById("risk").value,
     result: document.getElementById("result").value,
     lesson: document.getElementById("lesson").value,
+
+    checklistPassed: checklistData ? checklistData.passed : null,
+    checklistNotes: checklistData ? checklistData.notes : "",
+    checklistTime: checklistData ? checklistData.time : "N/A",
   };
 
   trades.unshift(trade);
