@@ -8,6 +8,20 @@ const expectancyEl = document.getElementById("expectancy");
 
 const checklistData = JSON.parse(localStorage.getItem("lastChecklist"));
 
+const setupInputs = document.querySelectorAll('input[type="checkbox"]');
+
+function getSelectedSetups() {
+  const selected = [];
+
+  setupInputs.forEach((input) => {
+    if (input.checked) {
+      selected.push(input.value);
+    }
+  });
+
+  return selected;
+}
+
 let trades = JSON.parse(localStorage.getItem("trades")) || [];
 
 function saveTrades() {
@@ -44,6 +58,10 @@ function calculateStats() {
   expectancyEl.textContent = expectancy;
 }
 
+function renderSetups(setups = []) {
+  return setups.map((tag) => `<span class="tag">${tag}</span>`).join("");
+}
+
 function renderTrades() {
   tradeList.innerHTML = "";
 
@@ -51,13 +69,18 @@ function renderTrades() {
     const div = document.createElement("div");
 
     div.innerHTML = `
+
+    <div class="setups">
+  ${renderSetups(trade.setups)}
+</div>
+
     <p><strong>Pair:</strong> ${trade.pair}</p>
     <p><strong>Timeframe:</strong> ${trade.timeframe}</p>
     <p><strong>Bias:</strong> ${trade.bias}</p>
     <p><strong>Risk:</strong> ${trade.risk}%</p>
     <p><strong>Result:</strong> ${trade.result}R</p>
     <p><strong>Lesson:</strong> ${trade.lesson}</p>
-
+  
     <p>
       <strong>Checklist:</strong>
       ${
@@ -74,7 +97,7 @@ function renderTrades() {
 
     <button data-index="${index}">Delete</button>
     <hr>
-  `;
+   `;
 
     tradeList.appendChild(div);
   });
@@ -106,6 +129,8 @@ form.addEventListener("submit", function (e) {
     result: document.getElementById("result").value,
     lesson: document.getElementById("lesson").value,
 
+    setups: getSelectedSetups(),
+
     checklistPassed: checklistData ? checklistData.passed : null,
     checklistNotes: checklistData ? checklistData.notes : "",
     checklistTime: checklistData ? checklistData.time : "N/A",
@@ -116,5 +141,7 @@ form.addEventListener("submit", function (e) {
   renderTrades();
   form.reset();
 });
+
+console.log("Trades loaded:", trades);
 
 renderTrades();
