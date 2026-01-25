@@ -157,6 +157,7 @@ form.addEventListener("submit", function (e) {
 
   trades.unshift(trade);
   saveTrades();
+  localStorage.removeItem("lastChecklist");
   renderTrades();
   tradeList.firstElementChild?.scrollIntoView({ behavior: "smooth" });
   form.reset();
