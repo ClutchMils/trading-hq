@@ -38,3 +38,22 @@ button {
 button:hover {
   background: #991b1b;
 }
+
+.trade {
+  border-bottom: 1px solid #eee;
+  padding: 12px 0;
+}
+
+.trade h4 {
+  margin: 0;
+}
+
+.tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 12px;
+  background: #f0f0f0;
+  font-size: 12px;
+  margin-right: 4px;
+  color: black;
+}

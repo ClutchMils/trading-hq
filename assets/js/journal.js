@@ -1,6 +1,8 @@
 const form = document.getElementById("tradeForm");
 const tradeList = document.getElementById("tradeList");
 
+let trades = JSON.parse(localStorage.getItem("trades")) || [];
+
 const totalTradesEl = document.getElementById("totalTrades");
 const winRateEl = document.getElementById("winRate");
 const avgREl = document.getElementById("avgR");
@@ -21,8 +23,6 @@ function getSelectedSetups() {
 
   return selected;
 }
-
-let trades = JSON.parse(localStorage.getItem("trades")) || [];
 
 function saveTrades() {
   localStorage.setItem("trades", JSON.stringify(trades));
@@ -59,11 +59,21 @@ function calculateStats() {
 }
 
 function renderSetups(setups = []) {
+  if (setups.length === 0) {
+    return `<span class="tag tag--empty">No setup tagged</span>`;
+  }
+
   return setups.map((tag) => `<span class="tag">${tag}</span>`).join("");
 }
 
 function renderTrades() {
   tradeList.innerHTML = "";
+
+  if (trades.length === 0) {
+    tradeList.innerHTML = "<p>No trades logged yet.</p>";
+    calculateStats();
+    return;
+  }
 
   trades.forEach((trade, index) => {
     const div = document.createElement("div");
@@ -80,7 +90,7 @@ function renderTrades() {
     <p><strong>Risk:</strong> ${trade.risk}%</p>
     <p><strong>Result:</strong> ${trade.result}R</p>
     <p><strong>Lesson:</strong> ${trade.lesson}</p>
-  
+
     <p>
       <strong>Checklist:</strong>
       ${
@@ -101,7 +111,7 @@ function renderTrades() {
 
     tradeList.appendChild(div);
   });
-  calculateStats();
+  // calculateStats();
 }
 
 calculateStats();
@@ -121,6 +131,13 @@ form.addEventListener("submit", function (e) {
 
   const checklistData = JSON.parse(localStorage.getItem("lastChecklist"));
 
+  const setups = getSelectedSetups();
+
+  if (setups.length === 0) {
+    alert("Select at least one setup.");
+    return;
+  }
+
   const trade = {
     pair: document.getElementById("pair").value,
     timeframe: document.getElementById("timeframe").value,
@@ -129,19 +146,23 @@ form.addEventListener("submit", function (e) {
     result: document.getElementById("result").value,
     lesson: document.getElementById("lesson").value,
 
-    setups: getSelectedSetups(),
+    setups: setups,
 
     checklistPassed: checklistData ? checklistData.passed : null,
     checklistNotes: checklistData ? checklistData.notes : "",
     checklistTime: checklistData ? checklistData.time : "N/A",
   };
 
+  console.log(trade.setups);
+
   trades.unshift(trade);
   saveTrades();
   renderTrades();
+  tradeList.firstElementChild?.scrollIntoView({ behavior: "smooth" });
   form.reset();
 });
 
 console.log("Trades loaded:", trades);
+
 
 renderTrades();
