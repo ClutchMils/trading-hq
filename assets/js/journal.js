@@ -77,6 +77,7 @@ function renderTrades() {
 
   trades.forEach((trade, index) => {
     const div = document.createElement("div");
+    div.classList.add("trade-card");
 
     div.innerHTML = `
 
@@ -84,29 +85,71 @@ function renderTrades() {
   ${renderSetups(trade.setups)}
 </div>
 
-    <p><strong>Pair:</strong> ${trade.pair}</p>
-    <p><strong>Timeframe:</strong> ${trade.timeframe}</p>
-    <p><strong>Bias:</strong> ${trade.bias}</p>
-    <p><strong>Risk:</strong> ${trade.risk}%</p>
-    <p><strong>Result:</strong> ${trade.result}R</p>
-    <p><strong>Lesson:</strong> ${trade.lesson}</p>
+<div class="row">
+  <span class="label">Date</span>
+  <span>${trade.date ? new Date(trade.date).toLocaleDateString() : "N/A"}</span>
+</div>
 
-    <p>
-      <strong>Checklist:</strong>
-      ${
-        trade.checklistPassed === true
-          ? "✅ Passed"
-          : trade.checklistPassed === false
-          ? "❌ Failed"
-          : "Not recorded"
-      }
-    </p>
+<div class="row">
+  <span class="label">Pair</span>
+  <span>${trade.pair}</span>
+</div>
 
-  <p><strong>Checklist Notes:</strong> ${trade.checklistNotes}</p>
-  <p><strong>Checklist Time:</strong> ${trade.checklistTime}</p>
+<div class="row">
+  <span class="label">Timeframe</span>
+  <span>${trade.timeframe}</span>
+</div>
 
-    <button data-index="${index}">Delete</button>
-    <hr>
+<div class="row">
+  <span class="label">Result</span>
+  <span class="${trade.result > 0 ? "win" : "loss"}">${trade.result}R</span>
+</div>
+
+<div class="row">
+ <span class="label">Risk: </span>
+ <span> ${trade.risk}% </span>
+</div>
+
+<div class="row">
+  <span class = "label"> Lesson: </span>
+  <span>${trade.lesson} </span>
+</div>
+
+
+<div class="row">
+  <span class = "label">
+    Checklist:
+  </span>
+  <span>
+  ${
+    trade.checklistPassed === true
+      ? "✅ Passed"
+      : trade.checklistPassed === false
+        ? "❌ Failed"
+        : "Not recorded"
+  } 
+  </span>    
+</div>
+
+<div class="row">
+    <span class = "label">
+      Checklist Notes:
+      </span>
+
+     <span>${trade.checklistNotes} </span>
+  </div>
+      
+<div class="row">
+    <span class = "label">
+      Checklist Time:
+      </span>
+      <span>${trade.checklistTime} </span>
+    </div>
+
+      <button data-index="${index}">Delete</button>
+  
+
+
    `;
 
     tradeList.appendChild(div);
@@ -139,6 +182,8 @@ form.addEventListener("submit", function (e) {
   }
 
   const trade = {
+    id: Date.now(),
+    date: new Date().toISOString(),
     pair: document.getElementById("pair").value,
     timeframe: document.getElementById("timeframe").value,
     bias: document.getElementById("bias").value,
@@ -164,6 +209,5 @@ form.addEventListener("submit", function (e) {
 });
 
 console.log("Trades loaded:", trades);
-
 
 renderTrades();

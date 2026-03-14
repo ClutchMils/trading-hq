@@ -57,3 +57,49 @@ button:hover {
   margin-right: 4px;
   color: black;
 }
+
+.trade-card {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  margin-bottom: 15px;
+  border-radius: 6px;
+}
+
+.trade-card p {
+  margin: 3px 0;
+}
+
+.setups {
+  grid-column: 1 / -1;
+}
+
+.trade-card button {
+  grid-column: 1 / -1;
+  width: fit-content;
+}
+
+
+
+.row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  margin-bottom: 6px;
+}
+
+.label {
+  font-weight: 600;
+  color: #444;
+}
+
+.win {
+  color: green;
+  font-weight: bold;
+}
+
+.loss {
+  color: red;
+  font-weight: bold;
+}
