@@ -192,6 +192,10 @@ textarea {
   min-height: 70px;
 }
 
+textarea#lesson{
+  margin-bottom: 8px;
+}
+
 .full {
   grid-column: 1 / -1;
 }

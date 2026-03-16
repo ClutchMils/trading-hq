@@ -98,6 +98,11 @@ function renderTrades() {
       </div>
 
       <div class="row">
+        <span class="label">bias</span>
+        <span>${trade.bias}</span>
+      </div>
+
+      <div class="row">
         <span class="label">Result</span>
         <span class="${trade.result > 0 ? "win" : "loss"}">${trade.result}R</span>
       </div>
