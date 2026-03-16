@@ -1,10 +1,28 @@
+/* =========================
+   GLOBAL STYLES
+========================= */
+
 body {
   font-family: Arial, sans-serif;
   background: #0f172a;
-  color: #e5e7eb;
+  color: #e2e8f0;
   margin: 0;
   line-height: 1.6;
 }
+
+/* =========================
+   LAYOUT
+========================= */
+
+main {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
 
 nav {
   background: #020617;
@@ -21,11 +39,9 @@ nav a:hover {
   text-decoration: underline;
 }
 
-main {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-}
+/* =========================
+   BUTTONS
+========================= */
 
 button {
   background: #7f1d1d;
@@ -39,6 +55,10 @@ button:hover {
   background: #991b1b;
 }
 
+/* =========================
+   TRADE JOURNAL
+========================= */
+
 .trade {
   border-bottom: 1px solid #eee;
   padding: 12px 0;
@@ -46,16 +66,6 @@ button:hover {
 
 .trade h4 {
   margin: 0;
-}
-
-.tag {
-  display: inline-block;
-  padding: 2px 8px;
-  border-radius: 12px;
-  background: #f0f0f0;
-  font-size: 12px;
-  margin-right: 4px;
-  color: black;
 }
 
 .trade-card {
@@ -68,10 +78,6 @@ button:hover {
   border-radius: 6px;
 }
 
-.trade-card p {
-  margin: 3px 0;
-}
-
 .setups {
   grid-column: 1 / -1;
 }
@@ -81,7 +87,23 @@ button:hover {
   width: fit-content;
 }
 
+/* =========================
+   TAGS
+========================= */
 
+.tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 12px;
+  background: #f0f0f0;
+  font-size: 12px;
+  margin-right: 4px;
+  color: black;
+}
+
+/* =========================
+   DATA ROWS
+========================= */
 
 .row {
   display: grid;
@@ -102,4 +124,101 @@ button:hover {
 .loss {
   color: red;
   font-weight: bold;
+}
+
+/* =========================
+   MILESTONES PAGE
+========================= */
+
+.milestones h1 {
+  margin-bottom: 30px;
+}
+
+.milestones h2 {
+  margin-top: 40px;
+  border-bottom: 2px solid #334155;
+  padding-bottom: 8px;
+}
+
+/* =========================
+   CARD COMPONENT
+========================= */
+
+.card {
+  background: #1e293b;
+  padding: 18px;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  margin-bottom: 16px;
+}
+
+.card:hover {
+  border-color: #475569;
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+/* =========================
+   FORM LAYOUT
+========================= */
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px 20px;
+  margin-top: 10px;
+}
+
+.form-grid label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+}
+
+.form-grid input,
+.form-grid select,
+.form-grid textarea {
+  margin-top: 4px;
+  padding: 6px;
+  border-radius: 4px;
+  border: 1px solid #334155;
+  background: #020617;
+  color: #e2e8f0;
+}
+
+textarea {
+  min-height: 70px;
+}
+
+.full {
+  grid-column: 1 / -1;
+}
+
+/* =========================
+   SETUP CHECKBOX GRID
+========================= */
+
+.setup-fieldset {
+  border: 1px solid #334155;
+  padding: 14px;
+  margin-bottom: 16px;
+}
+
+.setup-fieldset legend {
+  padding: 0 6px;
+}
+
+.setup-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px 20px;
+  margin-top: 8px;
+}
+
+.setup-grid label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }

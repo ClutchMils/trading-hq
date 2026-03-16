@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -15,6 +15,7 @@
       <a href="../strategy/index.html">Strategy</a>
       <a href="#">Journal</a>
       <a href="#">Resources</a>
+      <a href="../milestones/index.html">Milestones</a>
     </nav>
     <main>
       <h1>Trading Journal</h1>
@@ -23,89 +24,115 @@
         This journal exists for one reason: to stop me from repeating the same
         mistakes.
       </p>
+      <section>
+        <div class="card">
+          <h2>Log a Trade</h2>
+          <fieldset class="setup-fieldset">
+            <legend>Setup Type</legend>
 
-      <h2>Log a Trade</h2>
+            <div class="setup-grid">
+              <label>
+                <input
+                  type="checkbox"
+                  name="setup"
+                  value="Pullback Continuation"
+                />
+                Pullback Continuation
+              </label>
 
-       <fieldset>
-  <legend>Setup Type</legend>
+              <label>
+                <input
+                  type="checkbox"
+                  name="setup"
+                  value="Pullback to Structure"
+                />
+                Pullback to Structure
+              </label>
 
-  <label>
-    <input type="checkbox" value="HTF Level Rejection" />
-    HTF Level Rejection
-  </label>
+              <label>
+                <input
+                  type="checkbox"
+                  name="setup"
+                  value="Reversal at Extremes"
+                />
+                Reversal at Extremes
+              </label>
 
-  <label>
-    <input type="checkbox" value="Break & Retest" />
-    Break & Retest
-  </label>
+              <label>
+                <input
+                  type="checkbox"
+                  name="setup"
+                  value="Liquidity Grab Reversal"
+                />
+                Liquidity Grab Reversal
+              </label>
 
-  <label>
-    <input type="checkbox" value="Liquidity Sweep" />
-    Liquidity Sweep
-  </label>
+              <label>
+                <input type="checkbox" name="setup" value="Break & Retest" />
+                Break & Retest
+              </label>
+            </div>
+          </fieldset>
 
-  <label>
-    <input type="checkbox" value="Trend Continuation" />
-    Trend Continuation
-  </label>
-</fieldset>
+          <form id="tradeForm">
+            <div class="form-grid">
+              <label>
+                Market
+                <select id="market" required>
+                  <option value="">Select Market</option>
+                  <option value="XAUUSD">XAUUSD</option>
+                  <option value="GBPUSD">GBPUSD</option>
+                </select>
+              </label>
 
-<br>
+              <label>
+                Timeframe
+                <input type="text" id="timeframe" required />
+              </label>
 
-      <form id="tradeForm">
-        <label>
-          Pair:
-          <input type="text" id="pair" required /> </label
-        ><br /><br />
+              <label>
+                Bias
+                <input type="text" id="bias" />
+              </label>
 
-        <label>
-          Timeframe:
-          <input type="text" id="timeframe" required /> </label
-        ><br /><br />
+              <label>
+                Risk (%)
+                <input type="number" id="risk" step="0.1" required />
+              </label>
 
-        <label>
-          Bias:
-          <input type="text" id="bias" /> </label
-        ><br /><br />
+              <label>
+                Result (R)
+                <input type="number" id="result" step="0.1" required />
+              </label>
 
-        <label>
-          Risk (%):
-          <input type="number" id="risk" step="0.1" required /> </label
-        ><br /><br />
+              <label class="full">
+                Lesson
+                <textarea id="lesson"></textarea>
+              </label>
+            </div>
 
-        <label>
-          Result (R):
-          <input type="number" id="result" step="0.1" required /> </label
-        ><br /><br />
-
-        
-
-        <label>
-          Lesson:
-          <textarea id="lesson"></textarea></label
-        ><br /><br />
-
-        <button type="submit">Save Trade</button>
-      </form>
-
-       
-
+            <button type="submit">Save Trade</button>
+          </form>
+        </div>
+      </section>
 
       <hr />
 
-      <h2>Journal Stats</h2>
+      <section>
+        <h2>Journal Stats</h2>
 
-      <ul id="stats">
-        <li>Total Trades: <strong id="totalTrades">0</strong></li>
-        <li>Win Rate: <strong id="winRate">0%</strong></li>
-        <li>Average R: <strong id="avgR">0</strong></li>
-        <li>Expectancy: <strong id="expectancy">0</strong></li>
-      </ul>
-
+        <ul id="stats">
+          <li>Total Trades: <strong id="totalTrades">0</strong></li>
+          <li>Win Rate: <strong id="winRate">0%</strong></li>
+          <li>Average R: <strong id="avgR">0</strong></li>
+          <li>Expectancy: <strong id="expectancy">0</strong></li>
+        </ul>
+      </section>
       <hr />
-
-      <h2>Trade History</h2>
-      <div id="tradeList"></div>
+      <section>
+        <h2>Trade History</h2>
+        <div id="tradeList"></div>
+      </section>
     </main>
 
     <script src="../assets/js/journal.js"></script>
