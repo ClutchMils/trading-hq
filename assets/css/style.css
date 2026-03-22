@@ -10,6 +10,19 @@ body {
   line-height: 1.6;
 }
 
+h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: 1.2rem;
+  color: #94a3b8;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
 /* =========================
    LAYOUT
 ========================= */
@@ -27,16 +40,20 @@ main {
 nav {
   background: #020617;
   padding: 1rem;
+  display: flex;
+  gap: 16px;
+  border-bottom: 1px solid #1e293b;
 }
 
 nav a {
-  color: #e5e7eb;
-  margin-right: 1rem;
+  color: #94a3b8;
   text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
 }
 
 nav a:hover {
-  text-decoration: underline;
+  color: #e2e8f0;
 }
 
 /* =========================
@@ -59,23 +76,10 @@ button:hover {
    TRADE JOURNAL
 ========================= */
 
-.trade {
-  border-bottom: 1px solid #eee;
-  padding: 12px 0;
-}
-
-.trade h4 {
-  margin: 0;
-}
-
 .trade-card {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 8px 20px;
-  padding: 15px;
-  border: 1px solid #ddd;
-  margin-bottom: 15px;
-  border-radius: 6px;
+  gap: 10px 20px;
 }
 
 .setups {
@@ -93,12 +97,13 @@ button:hover {
 
 .tag {
   display: inline-block;
-  padding: 2px 8px;
-  border-radius: 12px;
-  background: #f0f0f0;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #020617;
+  border: 1px solid #334155;
   font-size: 12px;
-  margin-right: 4px;
-  color: black;
+  margin-right: 6px;
+  color: #e2e8f0;
 }
 
 /* =========================
@@ -107,13 +112,13 @@ button:hover {
 
 .row {
   display: grid;
-  grid-template-columns: 120px 1fr;
+  grid-template-columns: 110px 1fr;
   margin-bottom: 6px;
 }
 
 .label {
-  font-weight: 600;
-  color: #444;
+  font-weight: 500;
+  color: #94a3b8;
 }
 
 .win {
@@ -147,15 +152,18 @@ button:hover {
 .card {
   background: #1e293b;
   padding: 18px;
-  border-radius: 8px;
+  border-radius: 12px;
   border: 1px solid #334155;
   margin-bottom: 16px;
+
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease;
 }
 
 .card:hover {
   border-color: #475569;
+  transform: translateY(-2px);
 }
-
 .card h3 {
   margin-top: 0;
 }
@@ -181,11 +189,21 @@ button:hover {
 .form-grid select,
 .form-grid textarea {
   margin-top: 4px;
-  padding: 6px;
-  border-radius: 4px;
+  padding: 8px;
+  border-radius: 6px;
   border: 1px solid #334155;
   background: #020617;
   color: #e2e8f0;
+
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-grid input:focus,
+.form-grid select:focus,
+.form-grid textarea:focus {
+  outline: none;
+  border-color: #475569;
+  box-shadow: 0 0 0 1px #475569;
 }
 
 textarea {
@@ -225,4 +243,70 @@ textarea#lesson{
   display: flex;
   align-items: center;
   gap: 6px;
+}
+
+/* =========================
+   STATS
+========================= */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.stat-card {
+  padding: 18px;
+  border-radius: 12px;
+  text-align: center;
+  background: #020617;
+  border: 1px solid #1e293b;
+
+  transition: all 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px) scale(1.02);
+  border-color: #334155;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: #888;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.positive {
+  color: #22c55e; /* green */
+}
+
+.negative {
+  color: #ef4444; /* red */
+}
+
+.neutral {
+  color: #aaa;
+}
+
+.positive {
+  color: #22c55e;
+  text-shadow: 0 0 8px rgba(34, 197, 94, 0.4);
+}
+
+.negative {
+  color: #ef4444;
+  text-shadow: 0 0 8px rgba(239, 68, 68, 0.4);
+}
+
+.stats-wrapper {
+  padding: 10px;
+  background: linear-gradient(145deg, #020617, #020617);
 }

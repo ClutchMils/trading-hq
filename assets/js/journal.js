@@ -9,6 +9,18 @@ const avgREl = document.getElementById("avgR");
 const expectancyEl = document.getElementById("expectancy");
 const setupInputs = document.querySelectorAll('input[type="checkbox"]');
 
+// expectancyEl.textContent = expectancy.toFixed(2);
+
+// expectancyEl.classList.remove("positive", "negative", "neutral");
+
+// if (expectancy > 0) {
+//   expectancyEl.classList.add("positive");
+// } else if (expectancy < 0) {
+//   expectancyEl.classList.add("negative");
+// } else {
+//   expectancyEl.classList.add("neutral");
+// }
+
 function getSelectedSetups() {
   const selected = [];
 
@@ -33,6 +45,13 @@ function calculateStats() {
     winRateEl.textContent = "0%";
     avgREl.textContent = 0;
     expectancyEl.textContent = 0;
+
+    // reset colors
+    [winRateEl, avgREl, expectancyEl].forEach((el) => {
+      el.classList.remove("positive", "negative", "neutral");
+      el.classList.add("neutral");
+    });
+
     return;
   }
 
@@ -45,14 +64,32 @@ function calculateStats() {
     if (r > 0) wins++;
   });
 
-  const winRate = ((wins / total) * 100).toFixed(1);
-  const avgR = (totalR / total).toFixed(2);
-  const expectancy = avgR; // expectancy per trade in R
+  const winRate = (wins / total) * 100;
+  const avgR = totalR / total;
+  const expectancy = avgR;
 
+  // Update values
   totalTradesEl.textContent = total;
-  winRateEl.textContent = `${winRate}%`;
-  avgREl.textContent = avgR;
-  expectancyEl.textContent = expectancy;
+  winRateEl.textContent = `${winRate.toFixed(1)}%`;
+  avgREl.textContent = avgR.toFixed(2);
+  expectancyEl.textContent = expectancy.toFixed(2);
+
+  // Apply colors
+  applyStatColor(winRateEl, winRate, 50); // threshold 50%
+  applyStatColor(avgREl, avgR, 0); // threshold 0R
+  applyStatColor(expectancyEl, expectancy, 0);
+}
+
+function applyStatColor(element, value, threshold = 0) {
+  element.classList.remove("positive", "negative", "neutral");
+
+  if (value > threshold) {
+    element.classList.add("positive");
+  } else if (value < threshold) {
+    element.classList.add("negative");
+  } else {
+    element.classList.add("neutral");
+  }
 }
 
 function renderSetups(setups = []) {

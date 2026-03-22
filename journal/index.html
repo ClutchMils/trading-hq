@@ -27,7 +27,6 @@
       <section>
         <h2>Log a Trade</h2>
         <div class="card">
-          
           <fieldset class="setup-fieldset">
             <legend>Setup Type</legend>
 
@@ -117,19 +116,38 @@
         </div>
       </section>
 
-      <hr />
+      <!-- <hr /> -->
 
       <section>
         <h2>Journal Stats</h2>
 
-        <ul id="stats">
-          <li>Total Trades: <strong id="totalTrades">0</strong></li>
-          <li>Win Rate: <strong id="winRate">0%</strong></li>
-          <li>Average R: <strong id="avgR">0</strong></li>
-          <li>Expectancy: <strong id="expectancy">0</strong></li>
-        </ul>
+        <div class="card stats-wrapper">
+           <div class="stats-grid">
+          <div class="card stat-card">
+            <p class="stat-label">Total Trades</p>
+            <h2 class="stat-value" id="totalTrades">0</h2>
+          </div>
+
+          <div class="card stat-card">
+            <p class="stat-label">Win Rate</p>
+            <h2 class="stat-value" id="winRate">0%</h2>
+          </div>
+
+          <div class="card stat-card">
+            <p class="stat-label">Average R</p>
+            <h2 class="stat-value" id="avgR">0</h2>
+          </div>
+
+          <div class="card stat-card">
+            <p class="stat-label">Expectancy</p>
+            <h2 class="stat-value" id="expectancy">0</h2>
+          </div>
+        </div>
+        </div>
+       
+
       </section>
-      <hr />
+      <!-- <hr /> -->
       <section>
         <h2>Trade History</h2>
         <div id="tradeList"></div>
