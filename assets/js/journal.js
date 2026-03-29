@@ -9,18 +9,6 @@ const avgREl = document.getElementById("avgR");
 const expectancyEl = document.getElementById("expectancy");
 const setupInputs = document.querySelectorAll('input[type="checkbox"]');
 
-// expectancyEl.textContent = expectancy.toFixed(2);
-
-// expectancyEl.classList.remove("positive", "negative", "neutral");
-
-// if (expectancy > 0) {
-//   expectancyEl.classList.add("positive");
-// } else if (expectancy < 0) {
-//   expectancyEl.classList.add("negative");
-// } else {
-//   expectancyEl.classList.add("neutral");
-// }
-
 function getSelectedSetups() {
   const selected = [];
 
@@ -111,83 +99,66 @@ function renderTrades() {
 
   trades.forEach((trade, index) => {
     const div = document.createElement("div");
-    div.classList.add("card","trade-card");
+    div.classList.add("card", "trade-card");
 
     div.innerHTML = `
 
-      <div class="setups">
-        ${renderSetups(trade.setups)}
-      </div>
+  <!-- TOP BAR -->
+  <div class="trade-header">
+    <div>
+      <strong>${trade.market}</strong>
+      <span class="muted">${trade.timeframe}</span>
+    </div>
 
-      <div class="row">
-        <span class="label">Date</span>
-        <span>${trade.date ? new Date(trade.date).toLocaleDateString() : "N/A"}</span>
-      </div>
+    <div class="trade-result ${trade.result > 0 ? "win" : "loss"}">
+      ${trade.result}R
+    </div>
+  </div>
 
-      <div class="row">
-        <span class="label">Market</span>
-        <span>${trade.market}</span>
-      </div>
+  <!-- SETUPS -->
+  <div class="setups">
+    ${renderSetups(trade.setups)}
+  </div>
 
-      <div class="row">
-        <span class="label">Timeframe</span>
-        <span>${trade.timeframe}</span>
-      </div>
+  <!-- CORE INFO -->
+  <div class="trade-grid">
+    <div><span class="label">Date</span><span>${trade.date ? new Date(trade.date).toLocaleDateString() : "N/A"}</span></div>
+    <div><span class="label">Bias</span><span>${trade.bias || "-"}</span></div>
+    <div><span class="label">Risk</span><span>${trade.risk}%</span></div>
+  </div>
 
-      <div class="row">
-        <span class="label">bias</span>
-        <span>${trade.bias}</span>
-      </div>
+  <!-- LESSON -->
+  ${
+    trade.lesson
+      ? `
+    <div class="trade-note">
+      ${trade.lesson}
+    </div>
+  `
+      : ""
+  }
 
-      <div class="row">
-        <span class="label">Result</span>
-        <span class="${trade.result > 0 ? "win" : "loss"}">${trade.result}R</span>
-      </div>
+  <!-- CHECKLIST -->
+  <div class="trade-checklist">
+    <span class="label">Checklist</span>
+    <span>
+      ${
+        trade.checklistPassed === true
+          ? "✅ Passed"
+          : trade.checklistPassed === false
+            ? "❌ Failed"
+            : "Not recorded"
+      }
+    </span>
+  </div>
 
-      <div class="row">
-        <span class="label">Risk: </span>
-        <span> ${trade.risk}% </span>
-      </div>
+  <!-- ACTIONS -->
+  <div class="trade-actions">
+    <button class="edit-btn" data-index="${index}">Edit</button>
+    <button class="delete-btn" data-index="${index}">Delete</button>
+  </div>
 
-      <div class="row">
-        <span class = "label"> Lesson: </span>
-        <span>${trade.lesson} </span>
-      </div>
-
-      <div class="row">
-        <span class = "label">
-          Checklist:
-        </span>
-        <span>
-        ${
-          trade.checklistPassed === true
-            ? "✅ Passed"
-            : trade.checklistPassed === false
-              ? "❌ Failed"
-              : "Not recorded"
-        } 
-        </span>    
-      </div>
-
-      <div class="row">
-        <span class = "label">
-          Checklist Notes:
-        </span>
-        <span>${trade.checklistNotes} </span>
-      </div>
-          
-      <div class="row">
-        <span class = "label">
-          Checklist Time:
-          </span>
-          <span>${trade.checklistTime} </span>
-      </div>
-
-      <button class="edit-btn" data-index="${index}">Edit</button>
-      <button class="delete-btn" data-index="${index}">Delete</button>
-    
-    `;
-
+`;
     tradeList.appendChild(div);
   });
   calculateStats();
@@ -211,7 +182,6 @@ function loadTradeIntoForm(index) {
 
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
-
 
 tradeList.addEventListener("click", function (e) {
   const index = e.target.getAttribute("data-index");
@@ -258,7 +228,6 @@ form.addEventListener("submit", function (e) {
 
   console.log(trade.setups);
 
-  // trades.unshift(trade);
   if (editingIndex !== null) {
     trades[editingIndex] = trade;
     editingIndex = null;

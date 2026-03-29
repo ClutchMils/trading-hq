@@ -1,86 +1,111 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>trading-hq</title>
     <link rel="stylesheet" href="../assets/css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header>
-       <nav>
-        <a href="../index.html">Home</a>
-        <a href="#">Learn</a>
-        <a href="../learn/support-resistance.html">Support & Resistance</a>
-        <a href="../learn/risk-management.html">Risk Management</a>
-        <a href="../strategy/index.html">Strategy</a>
-        <a href="../journal/index.html">Journal</a>
-        <a href="#">Resources</a>
-        <a href="../milestones/index.html">Milestones</a>
+      <nav>
+        <div class="nav-left">
+          <span class="logo">Trading HQ</span>
+
+          <div class="nav-links">
+            <a href="../index.html">Home</a>
+            <a href="../learn/beginner-path.html" class="active">Learn</a>
+            <a href="../strategy/index.html">Strategy</a>
+            <a href="../journal/index.html">Journal</a>
+            <a href="../milestones/index.html">Milestones</a>
+          </div>
+        </div>
       </nav>
     </header>
-    <main>
-      <h1>Beginner Trading Path</h1>
+    <main class="path">
+      <section class="path-header">
+        <h1>Beginner Trading Path</h1>
+        <p>
+          From confusion to structure. Follow the process. No skipping. No
+          rushing.
+        </p>
+      </section>
 
-      <p>
-        This path is designed to take you from confused to structured. Do not
-        skip steps. Do not rush.
-      </p>
+      <section class="phase">
+        <h2>Phase 1: Understanding the Market</h2>
 
-      <h2>Phase 1: Understanding the Market</h2>
-      <ol>
-        <li>
-          <a href="market-basics.html">What a Market Really Is</a>
-          <p>Learn what actually moves price.</p>
-        </li>
-        <li>
-          <a href="timeframes.html">Timeframes Explained</a>
-          <p>Why speed traps beginners.</p>
-        </li>
-      </ol>
+        <div class="phase-items">
+          <a href="market-basics.html" class="phase-card">
+            <h3>What a Market Really Is</h3>
+            <p>Learn what actually moves price.</p>
+          </a>
 
-      <h2>Phase 2: Structure & Context</h2>
-      <ol>
-        <li>
-          <a href="support-resistance.html"
-            >Support & Resistance (The Right Way)</a
-          >
-          <p>How price reacts, not predicts.</p>
-        </li>
-      </ol>
+          <a href="timeframes.html" class="phase-card">
+            <h3>Timeframes Explained</h3>
+            <p>Why speed traps beginners.</p>
+          </a>
+        </div>
+      </section>
 
-      <h2>Phase 3: Survival Rules</h2>
-      <ol>
-        <li>
-          <a href="risk-management.html">Risk Management</a>
-          <p>The only thing keeping you alive.</p>
-        </li>
-      </ol>
+      <section class="phase">
+        <h2>Phase 2: Structure & Context</h2>
 
-      <h2>Phase 4: Discipline & Execution</h2>
-      <ol>
-        <li>
-          <a href="../strategy/index.html">Trading Strategy</a>
-          <p>Rules you must follow.</p>
-        </li>
-        <li>
-          <a href="../strategy/checklist.html">Pre-Trade Checklist</a>
-          <p>Permission before risk.</p>
-        </li>
-      </ol>
+        <div class="phase-items">
+          <a href="support-resistance.html" class="phase-card">
+            <h3>Support & Resistance</h3>
+            <p>How price reacts, not predicts.</p>
+          </a>
+        </div>
+      </section>
 
-      <h2>Phase 5: Review & Growth</h2>
-      <ol>
-        <li>
-          <a href="../journal/index.html">Trading Journal</a>
-          <p>Truth over feelings.</p>
-        </li>
-      </ol>
+      <section class="phase">
+        <h2>Phase 3: Survival Rules</h2>
 
-      <p>
-        If you rush this path, you will lose money. If you respect it, you give
-        yourself a chance.
-      </p>
+        <div class="phase-items">
+          <a href="risk-management.html" class="phase-card">
+            <h3>Risk Management</h3>
+            <p>The only thing keeping you alive.</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="phase">
+        <h2>Phase 4: Discipline & Execution</h2>
+
+        <div class="phase-items">
+          <a href="../strategy/index.html" class="phase-card">
+            <h3>Trading Strategy</h3>
+            <p>Rules you must follow.</p>
+          </a>
+
+          <a href="../strategy/checklist.html" class="phase-card">
+            <h3>Pre-Trade Checklist</h3>
+            <p>Permission before risk.</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="phase">
+        <h2>Phase 5: Review & Growth</h2>
+
+        <div class="phase-items">
+          <a href="../journal/index.html" class="phase-card">
+            <h3>Trading Journal</h3>
+            <p>Truth over feelings.</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="path-warning">
+        <p>
+          If you rush this path, you will lose money. If you respect it, you
+          give yourself a chance.
+        </p>
+      </section>
     </main>
   </body>
 </html>

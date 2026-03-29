@@ -1,81 +1,106 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="../assets/css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <nav>
-      <a href="../index.html">Home</a>
-      <a href="../learn/market-basics.html">Learn</a>
-      <a href="../learn/support-resistance.html">Support & Resistance</a>
-      <a href="../learn/risk-management.html">Risk Management</a>
-      <a href="#">Strategy</a>
-      <a href="../journal/index.html">Journal</a>
-      <a href="#">Resources</a>
-      <a href="../milestones/index.html">Milestones</a>
+      <div class="nav-left">
+        <span class="logo">Trading HQ</span>
+
+        <div class="nav-links">
+          <a href="../index.html">Home</a>
+          <a href="../learn/beginner-path.html">Learn</a>
+          <a href="../strategy/index.html" class="active">Strategy</a>
+          <a href="../journal/index.html">Journal</a>
+          <a href="../milestones/index.html">Milestones</a>
+        </div>
+      </div>
     </nav>
-    <main>
-      <h1>My Trading Strategy</h1>
+    <main class="lesson">
+      <section class="lesson-header">
+        <h1>Trading Strategy</h1>
+        <p class="subtitle">Rules, not opinions</p>
+      </section>
 
-      <p>
-        This strategy exists to keep me disciplined. If I break these rules, I
-        accept the consequences.
-      </p>
+      <!-- FOUNDATION -->
+      <section class="lesson-block">
+        <h2>Core Principle</h2>
 
-      <a href="checklist.html">Pre-Trade Checklist</a>
+        <div class="key-box">
+          The strategy is built on structure, not prediction.
+        </div>
 
-      <h2>Market I Trade</h2>
-      <p>Forex (major pairs)</p>
+        <p>
+          Every trade must align with higher timeframe direction and key levels.
+        </p>
+      </section>
 
-      <h2>Timeframes</h2>
-      <ul>
-        <li>Bias: Daily</li>
-        <li>Levels: 4H</li>
-        <li>Entries: 1H</li>
-      </ul>
+      <!-- ENTRY RULES -->
+      <section class="lesson-block">
+        <h2>Entry Rules</h2>
 
-      <h2>Market Conditions</h2>
-      <ul>
-        <li>Trending markets only</li>
-        <li>Clear structure</li>
-        <li>No high-impact news</li>
-      </ul>
+        <ul class="clean-list">
+          <li>Trade in direction of higher timeframe bias</li>
+          <li>Price must be at a key level</li>
+          <li>Market structure must be clean</li>
+          <li>Entry must align with structure</li>
+        </ul>
 
-      <h2>Setup Criteria</h2>
-      <ul>
-        <li>Price at HTF level</li>
-        <li>Bias aligned with structure</li>
-        <li>Clear rejection or continuation</li>
-      </ul>
+        <div class="warning">
+          If conditions are not clear, there is no trade.
+        </div>
+      </section>
 
-      <h2>Entry Rules</h2>
-      <ul>
-        <li>Entry on 1H confirmation</li>
-        <li>No impulse entries</li>
-      </ul>
+      <!-- RISK RULES -->
+      <section class="lesson-block">
+        <h2>Risk Rules</h2>
 
-      <h2>Risk Management</h2>
-      <ul>
-        <li>1% risk per trade</li>
-        <li>Hard stop loss</li>
-        <li>Minimum 1:2 R:R</li>
-      </ul>
+        <div class="key-box">Risk is fixed. Always.</div>
 
-      <h2>Exit Rules</h2>
-      <ul>
-        <li>Partial at 1R</li>
-        <li>Trail or hold based on structure</li>
-      </ul>
+        <ul class="clean-list">
+          <li>Risk per trade: 1%</li>
+          <li>No increasing risk after losses</li>
+          <li>No revenge trading</li>
+        </ul>
 
-      <h2>When I Do NOT Trade</h2>
-      <ul>
-        <li>Choppy ranges</li>
-        <li>Emotional state</li>
-        <li>After 2 consecutive losses</li>
-      </ul>
+        <div class="danger">
+          If risk is not controlled, nothing else matters.
+        </div>
+      </section>
+
+      <!-- EXIT RULES -->
+      <section class="lesson-block">
+        <h2>Exit Rules</h2>
+
+        <ul class="clean-list">
+          <li>Stop loss placed at structural invalidation</li>
+          <li>Let trade play out based on structure</li>
+          <li>Do not close early out of fear</li>
+        </ul>
+
+        <div class="focus">
+          The market decides the outcome. You manage risk.
+        </div>
+      </section>
+
+      <!-- FINAL -->
+      <section class="lesson-block">
+        <h2>Final Rule</h2>
+
+        <div class="danger">
+          If you break your rules, the result does not matter.
+        </div>
+
+        <p class="emphasis">Consistency comes from discipline, not outcomes.</p>
+      </section>
     </main>
   </body>
 </html>

@@ -5,50 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>trading-hq</title>
     <link rel="stylesheet" href="../assets/css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <nav>
-      <a href="../index.html">Home</a>
-      <a href="../learn/market-basics.html">Learn</a>
-      <a href="../learn/support-resistance.html">Support & Resistance</a>
-      <a href="../learn/risk-management.html">Risk Management</a>
-      <a href="../strategy/index.html">Strategy</a>
-      <a href="#">Journal</a>
-      <a href="#">Resources</a>
-      <a href="../milestones/index.html">Milestones</a>
-    </nav>
-    <main>
-      <h1>Trading Journal</h1>
+      <div class="nav-left">
+        <span class="logo">Trading HQ</span>
 
-      <p>
-        This journal exists for one reason: to stop me from repeating the same
-        mistakes.
-      </p>
-      <section>
-        <h2>Log a Trade</h2>
-        <div class="card">
+        <div class="nav-links">
+          <a href="../index.html">Home</a>
+          <a href="../learn/beginner-path.html">Learn</a>
+          <a href="../strategy/index.html">Strategy</a>
+          <a href="../journal/index.html" class="active">Journal</a>
+          <a href="../milestones/index.html">Milestones</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="journal">
+      <!-- HEADER -->
+      <section class="journal-header">
+        <h1>Trading Journal</h1>
+        <p>This exists to eliminate mistakes and enforce discipline.</p>
+      </section>
+
+      <!-- TOP GRID -->
+      <section class="journal-top">
+        <!-- LOG TRADE -->
+        <div class="card journal-form">
+          <h2>Log a Trade</h2>
+
           <fieldset class="setup-fieldset">
             <legend>Setup Type</legend>
 
             <div class="setup-grid">
-              <label>
-                <input
+              <label
+                ><input
                   type="checkbox"
                   name="setup"
                   value="Pullback to Structure"
                 />
-                Pullback to Structure
-              </label>
-
-              <label>
-                <input type="checkbox" name="setup" value="S/R Reaction" />
-                S/R Reaction
-              </label>
-
-              <label>
-                <input type="checkbox" name="setup" value="Break & Retest" />
-                Break & Retest
-              </label>
+                Pullback</label
+              >
+              <label
+                ><input type="checkbox" name="setup" value="S/R Reaction" /> S/R
+                Reaction</label
+              >
+              <label
+                ><input type="checkbox" name="setup" value="Break & Retest" />
+                Break & Retest</label
+              >
             </div>
           </fieldset>
 
@@ -57,7 +66,7 @@
               <label>
                 Market
                 <select id="market" required>
-                  <option value="">Select Market</option>
+                  <option value="">Select</option>
                   <option value="XAUUSD">XAUUSD</option>
                   <option value="GBPUSD">GBPUSD</option>
                 </select>
@@ -89,42 +98,40 @@
               </label>
             </div>
 
-            <button type="submit">Save Trade</button>
+            <button type="submit" class="btn-primary">Save Trade</button>
           </form>
         </div>
-      </section>
 
-      <!-- <hr /> -->
+        <!-- STATS -->
+        <div class="card journal-stats">
+          <h2>Performance</h2>
 
-      <section>
-        <h2>Journal Stats</h2>
-
-        <div class="card stats-wrapper">
           <div class="stats-grid">
-            <div class="card stat-card">
-              <p class="stat-label">Total Trades</p>
+            <div class="stat-card">
+              <p class="stat-label">Trades</p>
               <h2 class="stat-value" id="totalTrades">0</h2>
             </div>
 
-            <div class="card stat-card">
+            <div class="stat-card">
               <p class="stat-label">Win Rate</p>
               <h2 class="stat-value" id="winRate">0%</h2>
             </div>
 
-            <div class="card stat-card">
-              <p class="stat-label">Average R</p>
+            <div class="stat-card">
+              <p class="stat-label">Avg R</p>
               <h2 class="stat-value" id="avgR">0</h2>
             </div>
 
-            <div class="card stat-card">
+            <div class="stat-card">
               <p class="stat-label">Expectancy</p>
               <h2 class="stat-value" id="expectancy">0</h2>
             </div>
           </div>
         </div>
       </section>
-      <!-- <hr /> -->
-      <section>
+
+      <!-- HISTORY -->
+      <section class="journal-history">
         <h2>Trade History</h2>
         <div id="tradeList"></div>
       </section>
