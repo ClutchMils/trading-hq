@@ -149,6 +149,11 @@ button:hover {
    TRADE JOURNAL
 ========================= */
 
+.label {
+  font-weight: 500;
+  color: #94a3b8;
+}
+
 .trade-card {
   display: flex;
   flex-direction: column;
