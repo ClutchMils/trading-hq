@@ -33,76 +33,153 @@
       </section>
 
       <!-- TOP GRID -->
+
       <section class="journal-top">
-        <!-- LOG TRADE -->
+        <!-- LEFT: FORM -->
         <div class="card journal-form">
           <h2>Log a Trade</h2>
 
-          <fieldset class="setup-fieldset">
-            <legend>Setup Type</legend>
-
-            <div class="setup-grid">
-              <label
-                ><input
-                  type="checkbox"
-                  name="setup"
-                  value="Pullback to Structure"
-                />
-                Pullback</label
-              >
-              <label
-                ><input type="checkbox" name="setup" value="S/R Reaction" /> S/R
-                Reaction</label
-              >
-              <label
-                ><input type="checkbox" name="setup" value="Break & Retest" />
-                Break & Retest</label
-              >
-            </div>
-          </fieldset>
-
           <form id="tradeForm">
-            <div class="form-grid">
-              <label>
-                Market
-                <select id="market" required>
-                  <option value="">Select</option>
-                  <option value="XAUUSD">XAUUSD</option>
-                  <option value="GBPUSD">GBPUSD</option>
-                </select>
-              </label>
+            <div class="form-layout">
+              <!-- LEFT SIDE -->
+              <div class="form-main">
+                <div class="card inner-card">
+                  <h3>Setup</h3>
+                  <div class="setup-grid">
+                    <label class="setup-card">
+                      <input
+                        type="radio"
+                        name="setup"
+                        value="Pullback to Structure"
+                      />
+                      <span>Pullback</span>
+                    </label>
 
-              <label>
-                Timeframe
-                <input type="text" id="timeframe" required />
-              </label>
+                    <label class="setup-card">
+                      <input type="radio" name="setup" value="S/R Reaction" />
+                      <span>S/R Reaction</span>
+                    </label>
 
-              <label>
-                Bias
-                <input type="text" id="bias" />
-              </label>
+                    <label class="setup-card">
+                      <input type="radio" name="setup" value="Break & Retest" />
+                      <span>Break & Retest</span>
+                    </label>
+                  </div>
+                </div>
 
-              <label>
-                Risk (%)
-                <input type="number" id="risk" step="0.1" required />
-              </label>
+                <div class="card inner-card">
+                  <h3>Direction</h3>
+                  <div class="toggle-group" id="directionToggle">
+                    <button type="button" class="toggle-btn" data-value="buy">
+                      Buy
+                    </button>
+                    <button type="button" class="toggle-btn" data-value="sell">
+                      Sell
+                    </button>
+                  </div>
+                </div>
 
-              <label>
-                Result (R)
-                <input type="number" id="result" step="0.1" required />
-              </label>
+                <div class="card inner-card">
+                  <h3>Timeframe</h3>
+                  <div class="toggle-group" id="timeframeToggle">
+                    <button type="button" class="toggle-btn" data-value="1m">
+                      1m
+                    </button>
+                    <button type="button" class="toggle-btn" data-value="5m">
+                      5m
+                    </button>
+                    <button type="button" class="toggle-btn" data-value="1H">
+                      1H
+                    </button>
+                    <button type="button" class="toggle-btn" data-value="4H">
+                      4H
+                    </button>
+                  </div>
+                </div>
+              </div>
 
-              <label class="full">
-                Lesson
-                <textarea id="lesson"></textarea>
-              </label>
+              <!-- RIGHT SIDE -->
+              <div class="form-side">
+                <div class="form-grid">
+                  <label>
+                    Market
+                    <select id="market" required>
+                      <option value="">Select</option>
+                      <option value="XAUUSD">XAUUSD</option>
+                      <option value="GBPUSD">GBPUSD</option>
+                    </select>
+                  </label>
+
+                  <label>
+                    Bias
+                    <input type="text" id="bias" />
+                  </label>
+
+                  <label>
+                    Risk (%)
+                    <input type="number" id="risk" step="0.1" required />
+                  </label>
+
+                  <label>
+                    Result (R)
+                    <input type="number" id="result" step="0.1" required />
+                  </label>
+
+                  <label class="full">
+                    Comments
+                    <textarea id="comments"></textarea>
+                  </label>
+                </div>
+
+                <div class="card inner-card">
+                  <h3>Checklist</h3>
+
+                  <div class="checklist-grid">
+                    <label class="check-card">
+                      <input
+                        type="checkbox"
+                        class="checklist-rule"
+                        value="htf"
+                      />
+                      <span>HTF aligned</span>
+                    </label>
+
+                    <label class="check-card">
+                      <input
+                        type="checkbox"
+                        class="checklist-rule"
+                        value="entry"
+                      />
+                      <span>Valid entry</span>
+                    </label>
+
+                    <label class="check-card">
+                      <input
+                        type="checkbox"
+                        class="checklist-rule"
+                        value="risk"
+                      />
+                      <span>Risk OK</span>
+                    </label>
+
+                    <label class="check-card">
+                      <input
+                        type="checkbox"
+                        class="checklist-rule"
+                        value="emotion"
+                      />
+                      <span>No emotion</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <button type="submit" class="btn-primary">Save Trade</button>
           </form>
         </div>
 
-        <!-- STATS -->
+        <!-- RIGHT: STATS -->
         <div class="card journal-stats">
           <h2>Performance</h2>
 

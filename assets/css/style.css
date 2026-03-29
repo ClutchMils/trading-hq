@@ -357,7 +357,7 @@ textarea#lesson {
 
 .setup-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 8px 20px;
   margin-top: 8px;
 }
@@ -711,3 +711,188 @@ textarea#lesson {
 .journal-history {
   margin-top: 30px;
 }
+
+.setup-card {
+  position: relative;
+  border: 1px solid #333;
+  padding: 12px;
+  text-align: center;
+  cursor: pointer;
+  background: #111;
+  color: #aaa;
+  transition: all 0.2s ease;
+  border-radius: 8px;
+}
+
+.setup-card input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* hover */
+.setup-card:hover {
+  border-color: #555;
+  color: #fff;
+}
+
+/* ACTIVE STATE */
+.setup-card input:checked + span {
+  color: #000;
+}
+
+.setup-card:has(input:checked) {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+  font-weight: 600;
+}
+
+.checklist-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.check-card {
+  border: 1px solid #333;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  background: #111;
+  color: #aaa;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.check-card input {
+  display: none;
+}
+
+.check-card:hover {
+  border-color: #555;
+  color: #fff;
+}
+
+/* ACTIVE */
+.check-card:has(input:checked) {
+  background: #0f172a;
+  border-color: #22c55e;
+  color: #22c55e;
+  font-weight: 600;
+}
+
+.setup-card,
+.check-card {
+  transform: scale(1);
+}
+
+.setup-card:active,
+.check-card:active {
+  transform: scale(0.97);
+}
+
+.toggle-group {
+  display: flex;
+  gap: 10px;
+}
+
+.toggle-btn {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #333;
+  background: #111;
+  color: #aaa;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.toggle-btn:hover {
+  border-color: #555;
+  color: #fff;
+}
+
+/* ACTIVE BASE */
+.toggle-btn.active {
+  font-weight: 600;
+  transform: scale(0.98);
+}
+
+/* BUY */
+.toggle-btn[data-value="buy"].active {
+  background: #022c22;
+  border-color: #22c55e;
+  color: #22c55e;
+}
+
+/* SELL */
+.toggle-btn[data-value="sell"].active {
+  background: #2c0202;
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+#timeframeToggle .toggle-btn.active {
+  background: #1e293b;
+  border-color: #38bdf8;
+  color: #38bdf8;
+}
+
+.form-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-main,
+.form-side {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.journal-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.inner-card {
+  background: #0f172a;
+  border: 1px solid #1e293b;
+}
+
+.form-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-main,
+.form-side {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.trade-note {
+  margin-top: 10px;
+  padding: 10px;
+  background: #111;
+  border-left: 3px solid #4caf50;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #ccc;
+}
+
+.form-card.editing {
+  border: 2px solid #facc15; /* yellow highlight */
+}
+
+#tradeForm.editing {
+  outline: 3px solid red;
+  background: rgba(255, 0, 0, 0.05);
+}
+
