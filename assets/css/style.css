@@ -896,3 +896,28 @@ textarea#lesson {
   background: rgba(255, 0, 0, 0.05);
 }
 
+
+#biasToggle {
+  margin-top: 6px;
+}
+
+/* BULLISH */
+.toggle-btn[data-value="bullish"].active {
+  background: #022c22;
+  border-color: #22c55e;
+  color: #22c55e;
+}
+
+/* BEARISH */
+.toggle-btn[data-value="bearish"].active {
+  background: #2c0202;
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+/* NEUTRAL */
+.toggle-btn[data-value="neutral"].active {
+  background: #1e293b;
+  border-color: #38bdf8;
+  color: #38bdf8;
+}
