@@ -110,20 +110,44 @@
                     </select>
                   </label>
 
-                  <label>
-                    Bias
-                    <input type="text" id="bias" />
-                  </label>
+                  <div>
+                    <span class="label">Bias</span>
+                    <div id="biasToggle" class="toggle-group">
+                      <button
+                        type="button"
+                        class="toggle-btn"
+                        data-value="bullish"
+                      >
+                        Bullish
+                      </button>
+                      <button
+                        type="button"
+                        class="toggle-btn"
+                        data-value="bearish"
+                      >
+                        Bearish
+                      </button>
+                      <button
+                        type="button"
+                        class="toggle-btn"
+                        data-value="neutral"
+                      >
+                        Neutral
+                      </button>
+                    </div>
+                  </div>
 
                   <label>
                     Risk (%)
                     <input type="number" id="risk" step="0.1" required />
                   </label>
 
-                  <label>
-                    Result (R)
-                    <input type="number" id="result" step="0.1" required />
-                  </label>
+                  <div id="resultGroup">
+                    <label>
+                      Result (R)
+                      <input type="number" id="result" step="0.1" />
+                    </label>
+                  </div>
 
                   <label class="full">
                     Comments
@@ -214,6 +238,7 @@
       </section>
     </main>
 
-    <script src="../assets/js/journal.js"></script>
+    <!-- <script src="../assets/js/journal.js"></script> -->
+    <script type="module" src="../assets/js/main.js"></script>
   </body>
 </html>
