@@ -5,14 +5,14 @@ const form = document.querySelector("#tradeForm");
 const tradeList = document.getElementById("tradeList");
 
 const directionButtons = document.querySelectorAll(
-  "#directionToggle .toggle-btn",
+  "#directionToggle .option-card",
 );
 
 const timeframeButtons = document.querySelectorAll(
-  "#timeframeToggle .toggle-btn",
+  "#timeframeToggle .option-card",
 );
 
-const biasButtons = document.querySelectorAll("#biasToggle .toggle-btn");
+const biasButtons = document.querySelectorAll("#biasToggle .option-card");
 
 const statsElements = {
   total: document.getElementById("totalTrades"),
@@ -203,9 +203,9 @@ form.addEventListener("submit", (e) => {
   form.reset();
 
   //reset toggles
-  let selectedDirection = null;
-  let selectedTimeframe = null;
-  let selectedBias = null;
+  selectedDirection = null;
+  selectedTimeframe = null;
+  selectedBias = null;
 
   directionButtons.forEach((b) => b.classList.remove("active"));
   timeframeButtons.forEach((b) => b.classList.remove("active"));

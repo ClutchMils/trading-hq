@@ -46,7 +46,7 @@
                 <div class="card inner-card">
                   <h3>Setup</h3>
                   <div class="setup-grid">
-                    <label class="setup-card">
+                    <label class="option-card">
                       <input
                         type="radio"
                         name="setup"
@@ -55,12 +55,12 @@
                       <span>Pullback</span>
                     </label>
 
-                    <label class="setup-card">
+                    <label class="option-card">
                       <input type="radio" name="setup" value="S/R Reaction" />
                       <span>S/R Reaction</span>
                     </label>
 
-                    <label class="setup-card">
+                    <label class="option-card">
                       <input type="radio" name="setup" value="Break & Retest" />
                       <span>Break & Retest</span>
                     </label>
@@ -69,11 +69,11 @@
 
                 <div class="card inner-card">
                   <h3>Direction</h3>
-                  <div class="toggle-group" id="directionToggle">
-                    <button type="button" class="toggle-btn" data-value="buy">
+                  <div class="toggle" id="directionToggle">
+                    <button type="button" class="option-card" data-value="buy">
                       Buy
                     </button>
-                    <button type="button" class="toggle-btn" data-value="sell">
+                    <button type="button" class="option-card" data-value="sell">
                       Sell
                     </button>
                   </div>
@@ -81,17 +81,17 @@
 
                 <div class="card inner-card">
                   <h3>Timeframe</h3>
-                  <div class="toggle-group" id="timeframeToggle">
-                    <button type="button" class="toggle-btn" data-value="1m">
+                  <div class="toggle" id="timeframeToggle">
+                    <button type="button" class="option-card" data-value="1m">
                       1m
                     </button>
-                    <button type="button" class="toggle-btn" data-value="5m">
+                    <button type="button" class="option-card" data-value="5m">
                       5m
                     </button>
-                    <button type="button" class="toggle-btn" data-value="1H">
+                    <button type="button" class="option-card" data-value="1H">
                       1H
                     </button>
-                    <button type="button" class="toggle-btn" data-value="4H">
+                    <button type="button" class="option-card" data-value="4H">
                       4H
                     </button>
                   </div>
@@ -111,25 +111,25 @@
                   </label>
 
                   <div>
-                    <span class="label">Bias</span>
-                    <div id="biasToggle" class="toggle-group">
+                     <label>Bias</label>
+                    <div id="biasToggle" class="toggle">
                       <button
                         type="button"
-                        class="toggle-btn"
+                        class="option-card"
                         data-value="bullish"
                       >
                         Bullish
                       </button>
                       <button
                         type="button"
-                        class="toggle-btn"
+                        class="option-card"
                         data-value="bearish"
                       >
                         Bearish
                       </button>
                       <button
                         type="button"
-                        class="toggle-btn"
+                        class="option-card"
                         data-value="neutral"
                       >
                         Neutral
@@ -159,7 +159,7 @@
                   <h3>Checklist</h3>
 
                   <div class="checklist-grid">
-                    <label class="check-card">
+                    <label class="option-card">
                       <input
                         type="checkbox"
                         class="checklist-rule"
@@ -168,7 +168,7 @@
                       <span>HTF aligned</span>
                     </label>
 
-                    <label class="check-card">
+                    <label class="option-card">
                       <input
                         type="checkbox"
                         class="checklist-rule"
@@ -177,7 +177,7 @@
                       <span>Valid entry</span>
                     </label>
 
-                    <label class="check-card">
+                    <label class="option-card">
                       <input
                         type="checkbox"
                         class="checklist-rule"
@@ -186,7 +186,7 @@
                       <span>Risk OK</span>
                     </label>
 
-                    <label class="check-card">
+                    <label class="option-card">
                       <input
                         type="checkbox"
                         class="checklist-rule"
@@ -199,7 +199,7 @@
               </div>
             </div>
 
-            <button type="submit" class="btn-primary">Save Trade</button>
+            <button type="submit" class="btn btn--primary">Save Trade</button>
           </form>
         </div>
 
